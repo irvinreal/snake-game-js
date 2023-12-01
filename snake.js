@@ -1,6 +1,15 @@
 const btn_start = document.getElementById('btn-start')
 const btn_playAgain = document.getElementById('btn-playAgain')
 const startGame_gif = document.getElementById('startGame-gif')
+
+// controls
+const btn_left = document.getElementById('btn-left')
+const btn_up = document.getElementById('btn-up')
+const btn_right = document.getElementById('btn-right')
+const btn_down = document.getElementById('btn-down')
+
+const controls_container = document.getElementById('controls-container')
+
 btn_playAgain.style.display = 'none'
 
 // const sound = require('./sound')
@@ -35,6 +44,12 @@ class Game {
   txtButton = null
   txtState = null
 
+  // controls
+  btn_left = null
+  btn_up = null
+  btn_right = null
+  btn_down = null
+
   snake_head = new Image()
   snake_body = new Image()
   snake_food = new Image()
@@ -51,6 +66,11 @@ class Game {
     // this.txtState = txtState
     this.canvas = canvas
 
+    this.btn_left = btn_left
+    this.btn_up = btn_up
+    this.btn_right = btn_right
+    this.btn_down = btn_down
+
     this.ctx = this.canvas.getContext('2d')
 
     this.snake_head.src = 'assets/imgs/cabeza.png'
@@ -60,6 +80,7 @@ class Game {
   }
 
   registerKey() {
+    // funcionalidad para teclas [ W, A, S ,D ]
     document.addEventListener('keypress', (e) => {
       // this.printKey(e.key)
       switch (e.key) {
@@ -80,6 +101,12 @@ class Game {
           break
       }
     })
+
+    // funcionalidad para botones en la pantalla ( patalla para celular )
+    // left button
+    // btn_left.addEventListener('click', () => {
+    //   console.log('click')
+    // })
   }
 
   init() {
@@ -276,6 +303,19 @@ class Game {
 
     console.log(this.time_ms)
   }
+
+  goLeft() {
+    if (this.direction !== 2) this.direction = 4
+  }
+  goUp() {
+    if (this.direction !== 3) this.direction = 1
+  }
+  goRight() {
+    if (this.direction !== 4) this.direction = 2
+  }
+  goDown() {
+    if (this.direction !== 1) this.direction = 3
+  }
 }
 
 let game = new Game(document.getElementById('canvas'))
@@ -292,6 +332,27 @@ function reStartGame() {
   game.reStartGame()
   game.init()
 }
+
+// controles para pantalla de celular
+// funciones
+function handleLeft() {
+  game.goLeft()
+}
+function handleUp() {
+  game.goUp()
+}
+function handleRight() {
+  game.goRight()
+}
+function handleDown() {
+  game.goDown()
+}
+
+// eventos
+btn_left.addEventListener('click', handleLeft)
+btn_up.addEventListener('click', handleUp)
+btn_right.addEventListener('click', handleRight)
+btn_down.addEventListener('click', handleDown)
 
 btn_start.addEventListener('click', startGame)
 btn_playAgain.addEventListener('click', reStartGame)
