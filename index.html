@@ -24,7 +24,7 @@
       h1 {
         font-family: fantasy;
         font-weight: 500;
-        font-size: 5rem;
+        font-size: 3rem;
         height: fit-content;
         opacity: 0.3;
         text-shadow: 0 2px 3px rgb(217, 255, 2);
@@ -103,6 +103,10 @@
       }
 
       .btns-container {
+        position: absolute;
+        bottom: 30px;
+        left: 0;
+        right: 0;
         height: 60px;
         display: flex;
         justify-content: center;
@@ -115,7 +119,7 @@
         border: 1px solid #002b04;
         color: rgb(196, 193, 16);
         border-radius: 2px;
-        padding: 4px 20px;
+        padding: 10px 50px;
         transition: 0.3s ease;
       }
 
@@ -128,11 +132,12 @@
         background: #003b05;
         border: 1px solid #002b04;
         color: rgb(196, 193, 16);
-        border-radius: 2px;
-        padding: 4px 20px;
+        border-radius: 8px;
+        padding: 16px 20px;
       }
 
       .controls-container {
+        margin-top: 30px;
         display: none;
       }
 
@@ -141,6 +146,7 @@
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           grid-template-rows: repeat(3, 1fr);
+          gap: 20px 30px;
         }
         .btn-left {
           grid-column: 1;
@@ -178,11 +184,10 @@
         <img class="snake-body1" src="assets/imgs/snake-body.png" />
         <img class="snake-body2" src="assets/imgs/snake-body.png" />
       </div>
-    </div>
-
-    <div class="btns-container">
-      <button id="btn-start">Start</button>
-      <button id="btn-playAgain">Play again</button>
+      <div class="btns-container">
+        <button id="btn-start">Start</button>
+        <button id="btn-playAgain">Play again</button>
+      </div>
     </div>
 
     <div id="controls-container" class="controls-container">
