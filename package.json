@@ -4,7 +4,7 @@
   "description": "",
   "main": "snake.js",
   "scripts": {
-    "dev": "node --watch index."
+    "dev": "node --watch snake.js"
   },
   "keywords": [],
   "author": "",
